@@ -9,7 +9,7 @@
 
 - Add a callback function to a list with an order ID.
   ```gml
-  GMBattalion().order_add("hello", function(_value) { self.hello = _value; });
+  GMBattalion().order_add("hello", function(_value) { self.hello = _value.hello; });
   ```
 - Add units the order ID troops list.
   ```gml
@@ -18,7 +18,7 @@
   ```
 - Execute the callback function on all units added to the order ID troops, can add optional arguments after order ID if the callback function requires it.
   ```gml
-  GMBattalion().order_execute("hello", "world");
+  GMBattalion().order_execute("hello", { hello : "world" });
   ```
 - Enjoy!
 
