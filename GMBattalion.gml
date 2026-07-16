@@ -11,21 +11,24 @@ function GMBattalion(){
 	static __chart = ds_map_create();
 		
 	/**
-	* @param {string} _id Order ID.
+	* @param {any} _id Order ID.
+	* @param {struct | Id.Instance} _struct_or_instance Struct or instance.
 	* @param {Function} _callback Function.
 	*/
-	static order_add = function(_id, _callback) {
-		if ds_map_exists(__chart, _id) { return $"{_id} exists."; }
-		ds_map_add(__chart, _id, {
-			order : _callback,
-			troops : []
-		});
-		
+	static report_add = function(_id, _struct_or_instance, _callback) {
+		if !ds_map_exists(__chart, _id) { 
+			ds_map_add(__chart, _id, {
+				orders : [],
+				troops : []
+			});
+		}
+		array_push(__chart[? _id].orders, _callback);
+		array_push(__chart[? _id].troops, _struct_or_instance);
 		return true;
 	}
 		
 	/**
-	* @param {string} _id Order ID.
+	* @param {any} _id Order ID.
 	*/
 	static order_remove = function(_id) {
 		if !ds_map_exists(__chart, _id) { return $"{_id} does not exist."; }
@@ -42,7 +45,7 @@ function GMBattalion(){
 	}
 	
 	/**
-	* @param {string} _id Order ID.
+	* @param {any} _id Order ID.
 	* @param {struct} _cargo Optional cargo.
 	*/
 	static order_execute = function(_id, _cargo = undefined) {
@@ -54,42 +57,33 @@ function GMBattalion(){
 		for (var i = 0; i < _array_len; ++i) {
 			var _troop = _map.troops[i];
 			with (_troop) {
-				script_execute_ext(_map.order, _arguments);
+				script_execute_ext(_map.orders[i], _arguments);
 			}
-
 		}
 	}
-		
+			
 	/**
-	* @param {string} _id Order ID.
-	* @param {struct | Id.Instance} _struct_or_instance Struct or instance.
-	*/
-	static unit_add = function(_id, _struct_or_instance) {		
-		if !ds_map_exists(__chart, _id) { return $"{_id} does not exist."; }
-		array_push(__chart[? _id].troops, _struct_or_instance);
-		return true;
-	}
-		
-	/**
-	* @param {string} _id Order ID.
+	* @param {any} _id Order ID.
 	* @param {struct | Id.Instance} _struct_or_instance Struct or instance.
 	*/
 	static unit_remove = function(_id, _struct_or_instance) {
 		if !ds_map_exists(__chart, _id) { return $"{_id} does not exist."; }
 		var _index = array_get_index(__chart[? _id].troops, _struct_or_instance);
 		array_delete(__chart[? _id].troops, _index, 1);
+		array_delete(__chart[? _id].orders, _index, 1);
 		return true;
 	}
 	
 	/**
 	* Returns an array of each unit name in an order ID.
-	* @param {string} _id Order ID.
+	* @param {any} _id Order ID.
 	* @returns {array}
 	*/
 	static unit_list = function(_id) {
 		var _array = __chart[? _id].troops;
 		return _array;	
 	}
+	
 	__station = static_get(GMBattalion);
 }
 
