@@ -36,3 +36,7 @@
   ```gml
   GMBattalion().unit_remove("hello", my_struct_or_instance_id);
   ```
+- Unit list - Returns an array of each unit name in an order ID.
+  ```gml
+  GMBattalion().unit_list("hello");
+  ```
