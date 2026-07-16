@@ -7,18 +7,13 @@
 	- Copy everything from [GMBattalion.gml](https://github.com/maklore/GMBattalion/blob/main/GMBattalion.gml)
   - Paste to script file
 
-- Add a callback function to a list with an order ID.
+- Add unit and callback function to an order ID list.
   ```gml
-  GMBattalion().order_add("hello", function(_value) { self.hello = _value.hello; });
+  GMBattalion().report_add(0, instance_id, function(_value) { self.hello = _value.hello; });
   ```
-- Add units the order ID troops list.
+- Execute the callback function on all units added to order ID list , can add optional arguments after order ID if the callback function requires it.
   ```gml
-  GMBattalion().unit_add("hello", my_struct);
-  GMBattalion().unit_add("hello", instance_id);
-  ```
-- Execute the callback function on all units added to the order ID troops, can add optional arguments after order ID if the callback function requires it.
-  ```gml
-  GMBattalion().order_execute("hello", { hello : "world" });
+  GMBattalion().order_execute(0, { hello : "world" });
   ```
 - Enjoy!
 
@@ -30,13 +25,13 @@
   ```
 - Order remove - Removes the order from the list.
   ```gml
-  GMBattalion().order_remove("hello");
+  GMBattalion().order_remove(0);
   ```
 - Unit remove - Removes the unit from the order ID troop list.
   ```gml
-  GMBattalion().unit_remove("hello", my_struct_or_instance_id);
+  GMBattalion().unit_remove(0, my_struct_or_instance_id);
   ```
 - Unit list - Returns an array of each unit name in an order ID.
   ```gml
-  GMBattalion().unit_list("hello");
+  GMBattalion().unit_list(0);
   ```
