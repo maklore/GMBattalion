@@ -9,7 +9,9 @@
 
 - Add unit `(instance_id or struct)` and order `(callback function)` to a troop, and order list, using an order ID.
   ```gml
-  GMBattalion().report_add(0, instance_id_or_struct, function(_value) { self.hello = _value.hello; });
+  GMBattalion().report_add(0, instance_id_or_struct, function(_value) {
+  	self.hello = _value.hello;
+  });
   ```
 - Execute the order for each unit added to list, with optional cargo `(struct)`.
   ```gml
