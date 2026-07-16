@@ -2,7 +2,7 @@
 
 <h4 align="center">A small system to execute orders in the scope of units added to a list.</h4>
 
-# Basic setup
+## Basic setup
 - Create a script in GameMaker
 	- Copy everything from [GMBattalion.gml](https://github.com/maklore/GMBattalion/blob/main/GMBattalion.gml)
   - Paste to script file
@@ -18,7 +18,7 @@
 - Enjoy!
 
 
-### Other functions
+#### Other functions
 - Order list - Returns an array with order IDs.
   ```gml
   GMBattalion().order_list();
