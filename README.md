@@ -7,7 +7,7 @@
 	- Copy everything from [GMBattalion.gml](https://github.com/maklore/GMBattalion/blob/main/GMBattalion.gml)
   - Paste to script file
 
-- Add unit `(instance_id or struct)` and order `(callback function)` to a list with an order ID.
+- Add unit `(instance_id or struct)` and order `(callback function)` to a troop, and order list, using an order ID.
   ```gml
   GMBattalion().report_add(0, instance_id_or_struct, function(_value) { self.hello = _value.hello; });
   ```
@@ -19,7 +19,7 @@
 
 
 ### Other functions
-- Order list - Returns an array with order names.
+- Order list - Returns an array with order IDs.
   ```gml
   GMBattalion().order_list();
   ```
