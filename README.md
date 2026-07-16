@@ -1,6 +1,6 @@
 <h1 align="center">GMBattalion</h1>
 
-<h4 align="center">A small system to execute orders on recruited units.</h4>
+<h4 align="center">A small system to execute callback functions on added units.</h4>
 
 # Basic setup
 - Create a script in GameMaker
