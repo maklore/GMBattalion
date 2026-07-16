@@ -1,3 +1,4 @@
+
 /**
 * A system to execute orders on "units".
 * @returns {struct.GMBattalion}
@@ -56,13 +57,10 @@ function GMBattalion(){
 		}
 		for (var i = 0; i < _array_len; ++i) {
 			var _troop = __command[$ _id].troops[i];
-			if is_struct(_troop) {
-				with (_troop) {
-					script_execute_ext(other.__command[$ _id].order, _arguments);
-				}
-				continue;
+			with (_troop) {
+				script_execute_ext(other.__command[$ _id].order, _arguments);
 			}
-			script_execute_ext(method(_troop, __command[$ _id].order), _arguments);
+
 		}
 	}
 		
