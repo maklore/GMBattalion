@@ -7,11 +7,11 @@
 	- Copy everything from [GMBattalion.gml](https://github.com/maklore/GMBattalion/blob/main/GMBattalion.gml)
   - Paste to script file
 
-- Add unit and callback function to an order ID list.
+- Add unit `(instance_id or struct)` and order `(callback function)` to a list with an order ID.
   ```gml
-  GMBattalion().report_add(0, instance_id, function(_value) { self.hello = _value.hello; });
+  GMBattalion().report_add(0, instance_id_or_struct, function(_value) { self.hello = _value.hello; });
   ```
-- Execute the callback function on all units added to order ID list with optional cargo (struct).
+- Execute the order for each unit added to list, with optional cargo `(struct)`.
   ```gml
   GMBattalion().order_execute(0, { hello : "world" });
   ```
