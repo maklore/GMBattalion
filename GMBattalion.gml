@@ -1,6 +1,6 @@
 
 /**
-* A system to execute orders on "units".
+* A system to execute orders on "recruited units".
 * @returns {struct.GMBattalion}
 */
 function GMBattalion(){
