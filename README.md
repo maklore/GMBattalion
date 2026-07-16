@@ -11,7 +11,7 @@
   ```gml
   GMBattalion().report_add(0, instance_id, function(_value) { self.hello = _value.hello; });
   ```
-- Execute the callback function on all units added to order ID list , can add optional cargo (struct).
+- Execute the callback function on all units added to order ID list with optional cargo (struct).
   ```gml
   GMBattalion().order_execute(0, { hello : "world" });
   ```
