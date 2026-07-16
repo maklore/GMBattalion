@@ -1,6 +1,6 @@
 <h1 align="center">GMBattalion</h1>
 
-<h4 align="center">A small system to execute orders in the scope of added units.</h4>
+<h4 align="center">A small system to execute orders in the scope of units added to a list.</h4>
 
 # Basic setup
 - Create a script in GameMaker
