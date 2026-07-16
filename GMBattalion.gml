@@ -81,6 +81,15 @@ function GMBattalion(){
 		return true;
 	}
 	
+	/**
+	* Returns an array of each unit name in an order ID.
+	* @param {string} _id Order ID.
+	* @returns {array}
+	*/
+	static unit_list = function(_id) {
+		var _array = __chart[? _id].troops;
+		return _array;	
+	}
 	__station = static_get(GMBattalion);
 }
 
