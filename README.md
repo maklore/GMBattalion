@@ -29,11 +29,11 @@
   ```gml
   GMBattalion().order_remove(0);
   ```
-- Unit remove - Removes the unit from the order ID troop list.
-  ```gml
-  GMBattalion().unit_remove(0, my_struct_or_instance_id);
-  ```
 - Unit list - Returns an array of each unit name in an order ID.
   ```gml
   GMBattalion().unit_list(0);
+  ```
+- Unit remove - Removes the unit from the order ID troop list.
+  ```gml
+  GMBattalion().unit_remove(0, my_struct_or_instance_id);
   ```
